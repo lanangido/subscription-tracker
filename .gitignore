@@ -12,6 +12,9 @@
 /.agents
 /.claude
 /.gemini
+/CLAUDE.md
+/AGENTS.md
+
 
 # testing
 /coverage
