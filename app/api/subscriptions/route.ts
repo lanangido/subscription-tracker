@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { calculateStatus } from "@/lib/statusHelper";
+import type { Subscription } from "@prisma/client";
 
 export async function GET() {
   try {
@@ -9,7 +10,7 @@ export async function GET() {
     });
 
     // Compute status dynamically
-    const processedSubscriptions = subscriptions.map((sub) => ({
+    const processedSubscriptions = subscriptions.map((sub: Subscription) => ({
       ...sub,
       status: calculateStatus(sub.renewalDate, sub.status),
     }));
